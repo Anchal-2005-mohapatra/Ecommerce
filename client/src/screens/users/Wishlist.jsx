@@ -65,44 +65,60 @@ const Wishlist = () => {
                 </div>
 
             ) :
-                (
-                    <div className=' '>
-                        <h1>{wishlist.length === 0 ?
-                            (<p className='text-center font-luxurious text-2xl py-4'>
-                                Your wishlist is empty</p>)
-                            :
-                            (
-                                <div className='bg-gray-100 py-16 '
-                                >
-                                    <ul className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 m-4 bg-white py-6 px-6 lg:px-10 xl:px-16'>
-                                        {wishlist.map((item, i) => (
-                                            <li key={item._id + i} className='border p-3 space-y-2 rounded-lg'>
-                                                <div style={{ backgroundImage: `url(${item.imgUrl})` }}
-                                                    className='w-full bg-contain h-[160px] md:h-[200px] bg-no-repeat bg-center rounded-lg relative'>
-                                                    <div className='flex items-center justify-center bg-white w-10 h-10 rounded-full absolute right-5 top-4 '
-                                                        onClick={() => remove(item._id)}>
-                                                        <p className='cursor-pointer hover:text-red-500'>✕</p>
-                                                    </div>
+                (<div className=' '>
+                    <h1>{wishlist.length === 0 ?
+                        (<p className='text-center font-luxurious text-2xl py-4'>
+                            Your wishlist is empty</p>)
+                        :
+                        (
+                            <div className='bg-gray-100 py-16'>
+                                <ul className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 m-4 bg-white py-6 px-6 lg:px-10 xl:px-16'>
+                                    {wishlist.map((item, i) => (
+                                        <li key={item._id + i} className='border p-3 space-y-2 rounded-lg'>
+                                            <div style={{ backgroundImage: `url(${item.imgUrl})` }}
+                                                className='w-full bg-contain h-[160px] md:h-[200px] bg-no-repeat bg-center rounded-lg relative'>
+                                                <div className='flex items-center justify-center bg-white w-10 h-10 rounded-full absolute right-5 top-4 '
+                                                    onClick={() => remove(item._id)}>
+                                                    <p className='cursor-pointer hover:text-red-500'>✕</p>
                                                 </div>
-                                                <p>{item.name?.slice(0, 20) + "..."}</p>
-                                                <p className='text-sm text-gray-500'>
-                                                    {item.description.slice(0, 50) + ".."}
-                                                </p>
-                                                <p className='font-medium text-xl'>
-                                                    ₹{item.price}
-                                                </p>
-                                                <div className='flex justify-between '>
-                                                    <button className='bg-white text-black hover:bg-black hover:text-white shadow-lg border font-medium px-3 py-2  rounded-lg w-[30%]'
-                                                        onClick={() => navigate(`/product-details/${item._id}`)}>View</button>
-                                                    <button className='bg-white text-black  hover:bg-black hover:text-white shadow-lg border font-medium px-3 py-2  rounded-lg w-[30%]'>Buy</button></div>
-                                            </li>
-                                        ))}
-                                    </ul>
+                                            </div>
+                                            <p>{item.name?.slice(0, 20) + "..."}</p>
+                                            <p className='text-sm text-gray-500'>
+                                                {item.description.slice(0, 50) + ".."}
+                                            </p>
+                                            <p className='font-medium text-xl'>
+                                                ₹{item.price}
+                                            </p>
+                                            <div className='flex justify-between '>
+                                                <button className='bg-white text-black hover:bg-black hover:text-white shadow-lg border font-medium px-3 py-2  rounded-lg w-[30%]'
+                                                    onClick={() => navigate(`/product-details/${item._id}`)}>
+                                                    View
+                                                </button>
+                                                <button className='bg-white text-black  hover:bg-black hover:text-white shadow-lg border font-medium px-3 py-2  rounded-lg w-[30%]'
+                                                    onClick={() => navigate(`/checkout`,
+                                                        {
+                                                            state: {
+                                                                buyNow: true,
+                                                                product: {
+                                                                    productId: item._id,
+                                                                    name: item.name,
+                                                                    price: item.price,
+                                                                    imgUrl: item.imgUrl,
+                                                                    quantity: 1
+                                                                }
+                                                            }
+                                                        }
+                                                    )}>
+                                                    Buy
+                                                </button></div>
+                                        </li>
+                                    ))}
+                                </ul>
 
-                                </div>)
-                        }
-                        </h1>
-                    </div>
+                            </div>)
+                    }
+                    </h1>
+                </div>
                 )}
 
         </>

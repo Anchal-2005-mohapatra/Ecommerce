@@ -64,7 +64,7 @@ const ProductDetails = () => {
           <div className="flex flex-col items-center justify-start gap-5 md:flex-row-reverse">
 
             <div className="  ">
-              <img src={seletedImg} alt={product.name} className="object-cover  bg-cover bg-center rounded-lg border p-5 h-[300px] w-[300px] md:h-[400px] md:w-[400px]" />
+              <img src={seletedImg} alt={product.name} className="object-contain  bg-cover bg-center rounded-lg border p-5 h-[300px] w-[300px] md:h-[400px] md:w-[400px]" />
             </div>
             <div className='flex flex-row md:flex-col gap-5 overflow-x-auto overflow-y-auto py-2  md:h-[400px]'>
               {product.images && product.images.length > 0 ? (
@@ -74,7 +74,7 @@ const ProductDetails = () => {
                     src={img}
                     alt={product.name}
                     onClick={() => setSelectedImg(img)}
-                    className={`object-cover bg-center rounded-lg border p-3 h-[100px] w-[100px] cursor-pointer
+                    className={`object-contain bg-center rounded-lg border p-3 h-[100px] w-[100px] cursor-pointer
           ${seletedImg === img ? 'border-black' : 'border-gray-300'}`}
                   />
                 ))

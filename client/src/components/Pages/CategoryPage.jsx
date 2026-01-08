@@ -78,11 +78,9 @@ const CategoryPage = () => {
             ? cartRes.data.items
               .filter(i => i.productId)
               .map(i => i.productId._id)
-            : [];
-
-
+            : []
         }
-
+        window.scrollTo({ top: 0, behavior: "smooth" })
         const productsWithFlag = productsArray.map(p => ({
           ...p,
           isWishlisted: wishlistIds.includes(p._id),
@@ -223,7 +221,7 @@ const CategoryPage = () => {
       {currentCategory && (
         <div>
           <img src={currentCategory.banner} alt=""
-            className='h-[300px] flex items-center w-full object-center bg-cover  bg-no-repeat' />
+            className=' flex items-center w-full lg:h-[660px] bg-center bg-cover  bg-no-repeat object-cover' />
         </div>
       )}
 

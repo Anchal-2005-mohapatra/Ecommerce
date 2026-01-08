@@ -5,7 +5,7 @@ import { IoPerson } from "react-icons/io5";
 import { FaShoppingBag } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import Modal from '../home/Modal';
-import { IoIosNotifications } from "react-icons/io";
+// import { IoIosNotifications } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import axiosInstance from '../../api/axiosConfig';
@@ -14,6 +14,9 @@ import WomenModal from '../home/WomenModal';
 import KidsModal from '../home/KidsModal';
 import BeautyModals from '../home/BeautyModals';
 import { NavLink } from 'react-router-dom';
+import { GiHamburgerMenu } from "react-icons/gi";
+import Sidebar from './Sidebar';
+
 // import toast from 'react-hot-toast';
 
 
@@ -29,6 +32,7 @@ const Navbar = () => {
   const [kidModal, setKidModal] = useState(false);
   const [beautyModal, setBeautyModal] = useState(false);
   const [products, setProducts] = useState([]);
+  const[openHam, setOpenHam] = useState(false);
   // const [searchProduct, setSearchProduct] = useState('');
 
   useEffect(() => {
@@ -303,10 +307,15 @@ const Navbar = () => {
         </div>
       </div>
 
+
       {/* for medium screen  */}
       <div className='block md:block lg:hidden px-6 py-4 shadow-lg bg-white sticky top-0 w-full z-50 space-y-2'>
 
-        <div className='flex items-center justify-between'>
+        <div className='flex items-center justify-between md:justify-arround'>
+         <div>
+           <GiHamburgerMenu size={20} onClick={()=>setOpenHam(true)}/>
+            <Sidebar open={openHam} onClose={()=>setOpenHam(false)}/>
+         </div>
           <div className='relative'
             onMouseLeave={() => setShowSuggestions(false)}>
             <input type="text" placeholder='Search' value={searchQuery}
@@ -315,7 +324,7 @@ const Navbar = () => {
                 setShowSuggestions(true)
               }}
               onFocus={() => searchQuery && setShowSuggestions(true)}
-              className='border-2 rounded-lg py-2 px-9 placeholder:px-2 w-[170px] md:w-[210px] outline-none' />
+              className='border rounded-sm py-2 px-9 placeholder:px-2 w-[170px] md:w-[260px] outline-none' />
             <div>
               <img src={logo} alt="" className='w-6 absolute top-3 left-2'
                 onClick={() => {
@@ -324,7 +333,7 @@ const Navbar = () => {
                 }}
               />
             </div>
-            <IoMdSearch className='absolute top-3 left-36 md:left-44' color='gray' size={20} />
+            <IoMdSearch className='absolute top-3 left-36 md:left-56' color='gray' size={20} />
 
             {showSuggestions && searchQuery && (
               <div>
@@ -355,8 +364,8 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          <div className='flex gap-5 items-center'>
-            <IoIosNotifications className='' size={22} onClick={() => navigate('/notification')} />
+          <div className='flex gap-5 md:gap-10 items-center'>
+            {/* <IoIosNotifications className='' size={22} onClick={() => navigate('/notification')} /> */}
             <div className='relative flex items-center justify-center cursor-pointer'
               onClick={() => navigate(`/wishlist/${userId}`)}>
               {wishlistItem.length > 0 && (<div className='absolute bg-red-600 h-2 w-2 p-2 flex items-center justify-center rounded-full text-white -top-1 -right-2 text-xs'>{wishlistItem.length}</div>)}
@@ -372,7 +381,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className='flex justify-center'>
+        {/* <div className='flex justify-center'>
           <ul className='flex gap-5  items-center text-gray-800 font-semibold text-sm justify-between '>
             <li className="relative">
               <NavLink
@@ -386,7 +395,6 @@ const Navbar = () => {
               >
                 MEN
               </NavLink>
-              <MenModal open={isOpen} onClose={() => setIsOpen(false)} />
             </li>
 
             <li className='relative' >
@@ -439,7 +447,7 @@ const Navbar = () => {
               </NavLink>
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </>
   )

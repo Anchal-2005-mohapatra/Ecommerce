@@ -85,7 +85,7 @@ const Orders = () => {
                                <div className='md:flex gap-5 space-y-2 '>
                                 {order.items.map((item, i) => (
                                     <div key={i} className='border-b space-y-3  md:border-r p-2 '>
-                                        <img src={item.image || "the Img"} alt={item.title || "The title"} className="w-20 h-20 object-cover" />
+                                        <img src={item.image || "the Img"} alt={item.title || "The title"} className="w-20 h-20 object-contain" />
                                         <div>
                                             <p>{item.title?.slice(0,20)+"..."}</p>
                                             <p>₹{item.price} × {item.quantity}</p>
