@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 // import MenModal from '../home/MenModal';
 
 const Sidebar = ({ open, onClose }) => {
-   
+
 
     return (
         <div
@@ -15,11 +15,14 @@ const Sidebar = ({ open, onClose }) => {
             min-h-screen w-[70%] md:w-[40%] 
             transform transition-transform duration-300 ease-in-out
              ${open ? 'translate-x-0' : '-translate-x-full'}`}>
-                <div className='flex py-5 px-4 text-white'>
+                <div className='flex py-5 px-7 text-white'>
 
                     <div className='w-full'>
                         <div className='flex items-end justify-end'>
-                            <RxCross2 onClick={onClose} className='text-right' size={20} /></div>
+                            <RxCross2
+                                onClick={onClose}
+                                className='text-right' size={20} />
+                        </div>
                         <div>
                             <div className='py-10 '>
                                 <ul className='flex flex-col gap-5   text-gray-800 font-semibold text-sm justify-between '>
@@ -52,7 +55,7 @@ const Sidebar = ({ open, onClose }) => {
 
                                     <li className='relative' >
                                         <NavLink onClick={onClose}
-                                         to="/category/kids"
+                                            to="/category/kids"
                                             className={({ isActive }) =>
                                                 `cursor-pointer font-semibold text-sm pb-1 ${isActive
                                                     ? "text-red-600 border-b-2 border-red-600"

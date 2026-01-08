@@ -6,7 +6,9 @@ const app = express();
 const cors =require ('cors');
 const allowedOrigins = [
     'http://localhost:3000',
-    'http://10.12.123.146:3000'
+    'http://10.12.123.146:3000',
+    'http://10.132.72.146:3000',
+    'http://10.53.70.146:3000',
 ];
 
 app.use(cors({
