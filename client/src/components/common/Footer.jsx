@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <>
     <div className='grid gap-5'>
-<img src={footer} alt="" className='w-full   object-cover md:h-[200px]'/>
+<img src={footer} alt="" className='w-full object-cover md:h-[200px]'/>
     <div className='text-sm px-6 lg:px-10 xl:px-16 py-5 bg-black text-white grid gap-3 lg:grid-cols-2 '>
       <div className='grid grid-cols-3 p-2'>
         <div>

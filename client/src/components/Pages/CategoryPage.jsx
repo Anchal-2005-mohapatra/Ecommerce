@@ -221,7 +221,7 @@ const CategoryPage = () => {
       {currentCategory && (
         <div>
           <img src={currentCategory.banner} alt=""
-            className=' flex items-center w-full lg:h-[660px] bg-center bg-cover  bg-no-repeat object-cover' />
+            className=' flex items-center w-full object-contain md:h-64' />
         </div>
       )}
 

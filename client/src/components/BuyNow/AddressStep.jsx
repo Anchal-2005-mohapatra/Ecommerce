@@ -23,7 +23,6 @@ const AddressStep = ({ onNext, selectedAddress }) => {
     alternativePhone: "",
   });
 
-  // Fetch addresses on mount
   useEffect(() => {
     if (!userId) {
       toast.error("Please login first");
@@ -33,7 +32,6 @@ const AddressStep = ({ onNext, selectedAddress }) => {
     fetchAddresses();
   }, [userId]);
 
-  // Autofill if selectedAddress comes from checkout
   useEffect(() => {
     if (selectedAddress) {
       setActiveAddress(selectedAddress);
@@ -41,7 +39,6 @@ const AddressStep = ({ onNext, selectedAddress }) => {
     }
   }, [selectedAddress]);
 
-  // Fetch user addresses
   const fetchAddresses = async () => {
     try {
       const res = await axiosInstance.get(`/address/${userId}`);
@@ -51,19 +48,22 @@ const AddressStep = ({ onNext, selectedAddress }) => {
     }
   };
 
-  // Select address
   const handleSelectAddress = (address) => {
     setActiveAddress(address);
     setForm(address);
   };
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
-  // Check required fields
   const isFormValid = () =>
-    form.name && form.phone && form.state && form.city && form.pincode && form.address;
+    form.name &&
+    form.phone &&
+    form.state &&
+    form.city &&
+    form.pincode &&
+    form.address;
 
-  // Add or update address
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isFormValid()) {
@@ -75,7 +75,6 @@ const AddressStep = ({ onNext, selectedAddress }) => {
       let savedAddress;
 
       if (activeAddress?._id) {
-        // Update existing address
         const res = await axiosInstance.put(`/address/${activeAddress._id}`, { userId, ...form });
         savedAddress = res.data;
 
@@ -84,7 +83,6 @@ const AddressStep = ({ onNext, selectedAddress }) => {
         );
         toast.success("Address updated successfully");
       } else {
-        // Add new address
         const res = await axiosInstance.post(`/address/add`, { userId, ...form });
         savedAddress = res.data;
 
@@ -94,7 +92,6 @@ const AddressStep = ({ onNext, selectedAddress }) => {
 
       setActiveAddress(savedAddress);
 
-      // Clear form if it was a new address
       if (!activeAddress?._id) {
         setForm({
           name: "",
@@ -112,7 +109,6 @@ const AddressStep = ({ onNext, selectedAddress }) => {
     }
   };
 
-  // Continue to Payment
   const handleContinue = () => {
     if (!activeAddress) {
       toast.error("Please select or add an address");
@@ -121,7 +117,6 @@ const AddressStep = ({ onNext, selectedAddress }) => {
     onNext(activeAddress);
   };
 
-  // Delete address
   const handleDelete = async (addressId) => {
     try {
       await axiosInstance.delete(`/address/${addressId}`);
@@ -137,7 +132,6 @@ const AddressStep = ({ onNext, selectedAddress }) => {
     <div className="bg-white shadow p-6 rounded">
       <h2 className="text-lg font-semibold mb-4">Delivery Address</h2>
 
-      {/* Address Form */}
       <form onSubmit={handleSubmit}>
         <div className="grid md:grid-cols-2 gap-4">
           <input
@@ -228,7 +222,8 @@ const AddressStep = ({ onNext, selectedAddress }) => {
           type="submit"
           className="bg-green-600 text-white px-4 py-2 my-3 rounded"
         >
-          {activeAddress?._id ? "Update Address" : "Save Address"}
+          {activeAddress?._id ? 
+          "Update Address" : "Save Address"}
         </button>
       </form>
 

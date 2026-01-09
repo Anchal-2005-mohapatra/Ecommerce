@@ -15,7 +15,7 @@ import AddProduct from './components/home/AddProduct';
 import ProductDetails from './screens/users/ProductDetails';
 import FooterWrapper from './components/common/FooterWrapper';
 import EditProfile from './components/EditProfile/EditProfile';
-import Notification from './screens/users/Notification';
+// import Notification from './screens/users/Notification';
 // import Men from './screens/users/Men';
 // import Women from './screens/users/Women';
 // import Kids from './screens/users/Kids';
@@ -46,7 +46,7 @@ const App = () => {
           <Route path='/add-product' element={<AddProduct />} />
           <Route path='/forget-password' element={<ForgetPassword />}></Route>
           <Route path='/edit-profile/:userId' element={<EditProfile/>}/>
-          <Route path='/notification' element={<Notification/>}/>
+          {/* <Route path='/notification' element={<Notification/>}/> */}
           <Route  path="/category/:category" element={<CategoryPage  />}/>
           <Route path="/category/:category" element={<CategoryPage  />}/>
           <Route  path="/category/:category" element={<CategoryPage  />}/>

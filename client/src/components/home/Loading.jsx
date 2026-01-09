@@ -11,7 +11,6 @@ const Loading = () => {
     }, [])
     return (
         <>
-
             {loading ? 
                ( <div className='loader '>
                     <h1 className='spin'></h1>
