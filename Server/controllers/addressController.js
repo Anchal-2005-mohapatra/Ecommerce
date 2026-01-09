@@ -73,3 +73,48 @@ exports.deleteAddress = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+// PUT /address/:addressId
+exports.updateAddress = async (req, res) => {
+  try {
+    const { addressId } = req.params;
+    const {
+      userId,
+      name,
+      phone,
+      state,
+      city,
+      pincode,
+      address,
+      landmark,
+      alternativePhone,
+    } = req.body;
+
+    if (!mongoose.Types.ObjectId.isValid(addressId)) {
+      return res.status(400).json({ message: "Invalid addressId" });
+    }
+
+    const updatedAddress = await Address.findByIdAndUpdate(
+      addressId,
+      {
+        userId,
+        name,
+        phone,
+        state,
+        city,
+        pincode,
+        address,
+        landmark,
+        alternativePhone,
+      },
+      { new: true } // return the updated document
+    );
+
+    if (!updatedAddress) {
+      return res.status(404).json({ message: "Address not found" });
+    }
+
+    return res.status(200).json(updatedAddress);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};

@@ -11,7 +11,7 @@ const Sidebar = ({ open, onClose }) => {
             className={`fixed inset-0 z-40 transition-opacity duration-300 ${open ?
                 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
             <div onClick={onClose} className='bg-black bg-opacity-65 absolute inset-0' />
-            <div className={`fixed top-0 left-0 z-50 inset-0 bg-black bg-opacity-80 shadow-lg 
+            <div className={`fixed top-0 left-0 z-50 inset-0 bg-black bg-opacity-90 shadow-lg 
             min-h-screen w-[70%] md:w-[40%] 
             transform transition-transform duration-300 ease-in-out
              ${open ? 'translate-x-0' : '-translate-x-full'}`}>
@@ -25,7 +25,7 @@ const Sidebar = ({ open, onClose }) => {
                         </div>
                         <div>
                             <div className='py-10 '>
-                                <ul className='flex flex-col gap-5   text-gray-800 font-semibold text-sm justify-between '>
+                                <ul className='flex flex-col gap-5 text-gray-800 font-semibold text-sm justify-between '>
                                     <li className="relative">
                                         <NavLink onClick={onClose}
                                             to="/category/men"
