@@ -27,7 +27,7 @@ const Modal = ({ isOpen, onClose }) => {
 
 
     return (
-        <div className='absolute top-5 lg:top-full -right-1 lg:-right-20   bg-white rounded-lg z-50  ' >
+        <div className='absolute z-50 top-5 lg:top-full -right-1 lg:-right-20   bg-white rounded-lg z-  ' >
             <div className='w-[200px]  p-4 border-2 rounded-lg '>
                 <ul className='pb-2 flex justify-between'>
                     <li className='font-semibold  animate-bounce'>

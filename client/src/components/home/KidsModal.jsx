@@ -1,10 +1,14 @@
 import React from 'react'
 
-const KidsModal = ({ open, onCLose }) => {
+const KidsModal = ({ open, onClose }) => {
     if (!open) return null;
     return (
-        <div className='absolute top-full -left-48 bg-white p-2 h-[450px] w-[1000px] overflow-auto'>
-            <div className='flex  gap-5 p-4'>
+        <>
+      {/* <div className='fixed inset-0 bg-black bg-opacity-60 ' onClick={onClose} /> */}
+      <div className="absolute top-full left-1/2 -translate-x-2/4
+                      bg-white p-4 h-[450px] w-[1000px] 
+                      overflow-auto rounded-lg shadow-lg">
+        <div className="flex gap-5 p-4 justify-between">
 
                 <div className=' flex flex-col gap-2 bg-white  p-2'>
                     <div className=''>
@@ -158,6 +162,7 @@ const KidsModal = ({ open, onCLose }) => {
 
             </div>
         </div>
+        </>
     )
 }
 

@@ -4,8 +4,8 @@ const WomenModal = ({ open, onClose }) => {
     if (!open)
         return null;
     return (
-        <div className='absolute top-full -left-24 bg-white p-2 h-[450px] w-[1000px] overflow-auto'>
-            <div className='flex  gap-5 p-4'>
+        <div className='absolute top-full left-1/2 -translate-x-1/2  bg-white p-2 h-[450px] w-[1000px] overflow-auto'>
+            <div className='flex  gap-5 p-4 justify-between'>
 
                 <div className=' flex flex-col gap-2 bg-white  p-2'>
                     <div className='border-b-2 '>

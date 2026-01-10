@@ -209,19 +209,19 @@ const CategoryPage = () => {
     }
   };
 
-  if (!products.length)
-    return (
-      <p className="p-6 text-center text-gray-500">
-        No products found in {category.toUpperCase()}
-      </p>
-    );
+  // if (!products.length)
+  //   return (
+  //     <p className="p-6 text-center text-gray-500">
+  //       No products found in {category.toUpperCase()}
+  //     </p>
+  //   );
 
   return (
     <>
       {currentCategory && (
-        <div>
+        <div className=""> 
           <img src={currentCategory.banner} alt=""
-            className=' flex items-center w-full object-contain md:h-64' />
+            className=' flex items-center w-full object-cover md:h-64 lg:h-80' />
         </div>
       )}
 
@@ -244,7 +244,7 @@ const CategoryPage = () => {
                 alt={p.name?.slice(0, 10) + "..."}
                 className="h-40 w-full object-contain bg-cover bg-no-repeat mb-2 rounded"
                 onClick={() => navigate(`/product-details/${p._id}`)} />
-              <h3 className="font-semibold">{p.name?.slice(0, 35) + "..."}</h3>
+              <h3 className="font-semibold">{p.name?.slice(0, 25) + "..."}</h3>
               <p>{p.description?.slice(0, 50) + "..."}</p>
               <p className="font-bold text-lg">₹{p.price}</p>
               <div className="flex items-center gap-2">

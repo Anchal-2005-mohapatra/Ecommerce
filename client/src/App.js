@@ -26,13 +26,15 @@ import Orders from './screens/users/Orders';
 import BuyNow from './components/BuyNow/BuyNow';
 import Checkout from './components/BuyNow/Checkout';
 import CategoryPage from './components/Pages/CategoryPage';
+import PageNotFound from './components/common/PageNotFound';
 const App = () => {
+
 
   return (
     <div className='bg-gray-100'>
       <BrowserRouter>
         <Navbar />
-        <Toaster position="top-center"  reverseOrder={false}  />
+        <Toaster position="top-center" reverseOrder={false} />
         <Routes >
           <Route path='/' element={<Home />}></Route>
           <Route path='/login' element={<LoggedIn />}></Route>
@@ -45,19 +47,20 @@ const App = () => {
           <Route path='/product-details/:id' element={<ProductDetails />} />
           <Route path='/add-product' element={<AddProduct />} />
           <Route path='/forget-password' element={<ForgetPassword />}></Route>
-          <Route path='/edit-profile/:userId' element={<EditProfile/>}/>
+          <Route path='/edit-profile/:userId' element={<EditProfile />} />
           {/* <Route path='/notification' element={<Notification/>}/> */}
-          <Route  path="/category/:category" element={<CategoryPage  />}/>
-          <Route path="/category/:category" element={<CategoryPage  />}/>
-          <Route  path="/category/:category" element={<CategoryPage  />}/>
-          <Route  path="/category/:category" element={<CategoryPage  />}/>
-          <Route path='/contact-us' element={<ContactUs/>}/>
-          <Route path='/order' element={<Orders/>}/>
-          <Route  path="/category/:category" element={<CategoryPage />}/>
-          <Route path='/buy' element={<BuyNow/>}/>
-          <Route path='/checkout' element={<Checkout/>}/>
+          <Route path="/category/:category" element={<CategoryPage />} />
+          <Route path="/category/:category" element={<CategoryPage />} />
+          <Route path="/category/:category" element={<CategoryPage />} />
+          <Route path="/category/:category" element={<CategoryPage />} />
+          <Route path='/contact-us' element={<ContactUs />} />
+          <Route path='/order' element={<Orders />} />
+          <Route path="/category/:category" element={<CategoryPage />} />
+          <Route path='/buy' element={<BuyNow />} />
+          <Route path='/checkout' element={<Checkout />} />
+          <Route path='*' element={<PageNotFound />} />
         </Routes>
-       <FooterWrapper/>
+        <FooterWrapper />
       </BrowserRouter>
     </div>
   )
