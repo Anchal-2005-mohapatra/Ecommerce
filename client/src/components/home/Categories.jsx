@@ -22,7 +22,7 @@ const Categories = ({ open, isClose }) => {
                     onMouseLeave={()=>setOpenModal(false)}
                     >
                         <li>
-                            Furniture
+                            Furnitures
                         </li>
                         <IoIosArrowUp
                             className="transition-transform duration-300 group-hover:rotate-90"
