@@ -235,10 +235,10 @@ const Navbar = () => {
                 />
               </div>
 
-              <Categories
+           {isOpen && (<Categories
                 open={isOpen}
                 onClose={() => setIsOpen(false)}
-              />
+              />)}   
             </li>
 
             {isOpen && (
@@ -356,7 +356,7 @@ const Navbar = () => {
 
           </ul>
 
-<div className='border-x-2 '>
+<div className=' border-x'>
     <div className="relative overflow-hidden inline-block cursor-pointer group ">
             <span
               className="absolute inset-0 bg-black translate-x-full 
