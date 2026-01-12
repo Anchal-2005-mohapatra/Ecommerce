@@ -133,7 +133,7 @@ const Navbar = () => {
 
 
           <div
-            className=" flex"
+            className="relative flex"
             onMouseLeave={() => setShowSuggestions(false)}
           >
             <input
@@ -145,12 +145,12 @@ const Navbar = () => {
                 setShowSuggestions(true);
               }}
               onFocus={() => searchQuery && setShowSuggestions(true)}
-              className="xl:w-[450px]  px-10 py-2 bg-gray-100 outline-none rounded-l"
+              className="xl:w-[450px] px-5 py-2 bg-gray-100 outline-none rounded-l"
             />
            <div className='bg-black text-white flex items-center justify-center p-3 rounded-r'>
             <IoMdSearch className="" size={18}/></div> 
             {showSuggestions && searchQuery && (
-              <div className="absolute top-full left-0 w-full bg-white border shadow-lg rounded z-50 h-[250px] max-h-fit overflow-y-auto">
+              <div className="absolute top-full left-0 w-full bg-white border shadow-lg rounded z-[9999] h-[250px] max-h-fit overflow-y-auto">
                 {filteredProducts.length === 0 ? (
                   <p className="p-3 text-sm text-gray-500">No results found</p>
                 ) : (

@@ -34,7 +34,13 @@ const App = () => {
     <div className='bg-gray-100'>
       <BrowserRouter>
         <Navbar />
-        <Toaster position="top-center" reverseOrder={false} />
+        <Toaster position="top-center" reverseOrder={false} toastOptions={{
+          style: {
+            background: "#111",
+            color: "#fff",
+          },
+        }}
+        />
         <Routes >
           <Route path='/' element={<Home />}></Route>
           <Route path='/login' element={<LoggedIn />}></Route>
